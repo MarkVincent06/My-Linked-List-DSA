@@ -147,7 +147,7 @@ void printNode() {
 
 int main() {
     head = NULL; // empty list
-
+    int noOfNodes;
 
     // cout << endl;
     // for(int i=1; i<=noOfNodes; i++) {
