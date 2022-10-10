@@ -128,6 +128,28 @@ void deleteNodeAtEnd() {
 
 }
 
+void printNode(char input) {
+    Node* temp = head;
+
+        if(input == '1') cout << "\nAfter inserting at the start, the updated linked list are: \n";    
+        else if (input == '2') cout << "\nAfter inserting at the middle, the updated linked list are: \n"; 
+        else if (input == '3') cout << "\nAfter inserting at the end, the updated linked list are: \n"; 
+        else if (input == '4') cout << "\nAfter deleting at the start, the updated linked list are: \n"; 
+        else if (input == '5') cout << "\nAfter deleting at the middle, the updated linked list are: \n"; 
+        else if (input == '6') cout << "\nAfter deleting at the end, the updated linked list are: \n";
+        else cout << "\nThe current linked list are: \n";
+
+        while(temp != NULL) {
+            if(temp->next != NULL) {
+                cout << temp->data << " -> ";
+            } else {
+                cout << temp->data << " -> NULL";
+            }
+            temp = temp->next;
+        }
+        cout << "\n";
+}
+
 int main() {
     head = NULL; // empty list
     int noOfNodes, value;
@@ -159,8 +181,85 @@ int main() {
         cout << "\n";
     }
 
+    char choice;
+
+    cout << "\nDo you want to insert an operation in the linked list above (y or n)? ";
+    while(true) {
+        cin >> choice;
+        if(choice == 'y') {
+            break;
+        } else if(choice == 'n') {
+            return 1;
+        } else {
+            cout << "Invalid choice!" << endl;
+            cout << "Insert an operation in the linked list above (y or n)? ";
+        }
+    }
     
+    cout << "\n(1) Insert a new node at the start" << endl;
+    cout << "(2) Insert a new node at the middle" << endl;
+    cout << "(3) Insert a new node at the end" << endl;
+    cout << "(4) Delete a node at the front" << endl;
+    cout << "(5) Delete a node at the middle" << endl;
+    cout << "(6) Delete a node at the end" << endl;
 
+    int data;
+    char input;
+    bool breakLoop = false;
 
+    cout << "\nSelect an operation to be used based on the list above (1-6): ";
+    while(!breakLoop) {
+        cin >> input;
+        switch(input) {
+            case '1':
+                printNode('0');
+                cout << "Input data for the first node: ";
+                cin >> data;
+                insertNodeAtBeginning(data);
+                printNode('1');
+                breakLoop = true;
+                break;
+            case '2':
+                printNode('0');
+                cout << "Input data for the first node: ";
+                cin >> data;
+                insertNodeAtMiddle(data);
+                printNode('2');
+                breakLoop = true;
+                break;
+            case '3':
+                printNode('0');
+                cout << "Input data for the first node: ";
+                cin >> data;
+                insertNodeAtEnd(data);
+                printNode('3');
+                breakLoop = true;
+                break;
+            case '4':
+                printNode('0');
+                deleteNodeAtBeginning();
+                printNode('4');
+                breakLoop = true;
+                break;
+            case '5':
+                printNode('0');
+                deleteNodeAtMiddle();
+                printNode('5');
+                breakLoop = true;
+                break;
+            case '6':
+                printNode('0');
+                deleteNodeAtEnd();
+                printNode('6');
+                breakLoop = true;
+                break;
+            default: 
+                cout << "Ivalid input!" << endl;
+                cout << "Please select an operation between {1-6} based on the list above: ";
+               break;
+        }
+    }
+    
+    cout << "\nSuccess :)" << endl;
     return 0;
 }
