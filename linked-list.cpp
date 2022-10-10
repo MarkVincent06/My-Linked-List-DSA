@@ -128,43 +128,38 @@ void deleteNodeAtEnd() {
 
 }
 
-// This prints the node(s)
-void printNode() {
-    Node* temp = head;
+int main() {
+    head = NULL; // empty list
+    int noOfNodes, value;
 
-    if(temp == NULL) {
-        cout << "\t\tThe List for now is empty." << endl;
+    cout << "Input the number of nodes: ";
+    cin >> noOfNodes;
+
+    cout << endl;
+    for(int i=1; i<=noOfNodes; i++) {
+        cout << "Input data for node " << i << ": ";
+        cin >> value;
+        insertNodeAtBeginning(value);
+    }   
+
+    if(head == NULL) {
+        cout << "The list is empty." << endl;
     } else {
-         cout << "\t\tThe Linked List is/are: ";
+        Node* temp = head;
+
+        cout << "\nThe linked list are: ";    
         while(temp != NULL) {
-            cout << temp->data << " ";
+            if(temp->next != NULL) {
+                cout << temp->data << " -> ";
+            } else {
+                cout << temp->data << " -> NULL";
+            }
             temp = temp->next;
         }
         cout << "\n";
     }
-}
 
-
-int main() {
-    head = NULL; // empty list
-    int noOfNodes;
-
-    // cout << endl;
-    // for(int i=1; i<=noOfNodes; i++) {
-    //     cout << "Input data for node " << i << ": ";
-    //     cin >> value;
-    //     insertNodeAtBeginning(value);
-    //     PrintNode();
-    // }
-
-    // cout << "Input the number of nodes: ";
-    // int n, value;
-    // cin >> n;
-
-
-    // deleteNodeAtEnd();
-    // PrintNode();
-
+    
 
 
     return 0;
