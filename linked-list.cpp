@@ -221,7 +221,7 @@ int main() {
                 break;
             case '2':
                 printNode('0');
-                cout << "Input data for the first node: ";
+                cout << "Input data for the middle node: ";
                 cin >> data;
                 insertNodeAtMiddle(data);
                 printNode('2');
@@ -229,7 +229,7 @@ int main() {
                 break;
             case '3':
                 printNode('0');
-                cout << "Input data for the first node: ";
+                cout << "Input data for the end node: ";
                 cin >> data;
                 insertNodeAtEnd(data);
                 printNode('3');
